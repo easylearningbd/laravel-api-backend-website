@@ -18,7 +18,7 @@ Route::get('/dashboard', function () {
 
  Route::get('/verify', [AdminController::class, 'ShowVerification'])->name('custom.verification.form');
 
-  Route::post('/verify', [AdminController::class, 'VerificationVerify'])->name('verification.verify');
+  Route::post('/verify', [AdminController::class, 'VerificationVerify'])->name('custom.verification.verify');
 
 
 
