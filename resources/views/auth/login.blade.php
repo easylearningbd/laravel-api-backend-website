@@ -8,7 +8,7 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc."/>
         <meta name="author" content="Zoyothemes"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
+ 
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
 
@@ -38,7 +38,7 @@
                                     <div class="pt-0">
 
  
- <form method="POST" action="{{ route('login') }}" class="my-4">
+ <form method="POST" action="{{ route('admin.login') }}" class="my-4">
         @csrf
 
     <div class="form-group mb-3">
