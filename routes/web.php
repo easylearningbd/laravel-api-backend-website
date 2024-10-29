@@ -20,10 +20,12 @@ Route::get('/dashboard', function () {
 
   Route::post('/verify', [AdminController::class, 'VerificationVerify'])->name('custom.verification.verify');
 
- 
+
 
 Route::middleware('auth')->group(function () {
-    Route::get('/admin/profile', [ProfileController::class, 'AdminProfile'])->name('admin.profile');
+
+ Route::get('/admin/profile', [ProfileController::class, 'AdminProfile'])->name('admin.profile');
+ 
   
 });
 
