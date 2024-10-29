@@ -22,6 +22,26 @@ class ProfileController extends Controller
      }
      // End Method
 
+     public function ProfileStore(Request $request){
+        $id = Auth::user()->id;
+        $data = User::find($id);
+
+        $data->name = $request->name;
+        $data->email = $request->email;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time().'.'.$file->getClientOriginalExtension(); // 2323.jpg
+            $file->move(public_path('upload/user_images'),$filename);
+            $data->image = $filename;
+        }
+
+        $data->save();
+        return redirect()->back();
+
+     }
+     // End Method
+
 
 
 
