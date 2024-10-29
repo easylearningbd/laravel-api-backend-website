@@ -1,5 +1,7 @@
 	@extends('admin.master')
 	@section('admin')
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 	<div class="content">
 
@@ -76,14 +78,14 @@
            <div class="form-group mb-3 row">
             <label class="form-label">Profile Image</label>
             <div class="col-lg-12 col-xl-12">
-                 <input class="form-control" type="file" name="image"  >
+                 <input class="form-control" type="file" name="image" id="image"  >
             </div>
         </div> 
 
 
           <div class="form-group mb-3 row"> 
             <div class="col-lg-12 col-xl-12">
-                	<img src="{{ (!empty($profileData->image)) ? url('upload/user_images/'.$profileData->image) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
+                	<img id="showImage" src="{{ (!empty($profileData->image)) ? url('upload/user_images/'.$profileData->image) : url('upload/no_image.jpg') }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
             </div>
         </div> 
 
@@ -153,6 +155,16 @@
 	<!-- container-fluid -->
 	</div> 
 
-
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#image').change(function(e){
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$('#showImage').attr('src',e.target.result);
+				}
+				reader.readAsDataURL(e.target.files['0']);
+			})
+		})
+	</script>
 
 	@endsection 
