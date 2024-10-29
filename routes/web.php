@@ -16,6 +16,18 @@ Route::get('/dashboard', function () {
 
   Route::post('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
+ Route::get('/verify', [AdminController::class, 'ShowVerification'])->name('custom.verification.form');
+
+  Route::post('/verify', [AdminController::class, 'VerificationVerify'])->name('verification.verify');
+
+
+
+
+
+
+
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
