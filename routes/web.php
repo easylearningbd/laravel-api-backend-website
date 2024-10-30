@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\ServiceController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,5 +47,18 @@ Route::middleware('auth')->group(function () {
  	Route::get('/delete/slider/{id}', 'DeleteSlider')->name('delete.slider');
 
  });
+
+  Route::controller(ServiceController::class)->group(function(){
+ 	Route::get('/all/service', 'AllService')->name('all.service'); 
+ 	Route::get('/add/slider', 'AddSlider')->name('add.slider');
+ 	Route::post('/store/slider', 'StoreSlider')->name('store.slider');
+ 	Route::get('/edit/slider/{id}', 'EditSlider')->name('edit.slider');
+ 	Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
+ 	Route::get('/delete/slider/{id}', 'DeleteSlider')->name('delete.slider');
+
+ });
+
+
+
   
 });
