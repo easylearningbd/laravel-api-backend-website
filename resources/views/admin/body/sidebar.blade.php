@@ -58,7 +58,7 @@
                         <a href="{{ route('all.slider') }}" class="tp-link">All Slider</a>
                     </li>
                     <li>
-                        <a href="auth-register.html" class="tp-link">Add Slider</a>
+                        <a href="{{ route('add.slider') }}" class="tp-link">Add Slider</a>
                     </li>
                      
                 </ul>

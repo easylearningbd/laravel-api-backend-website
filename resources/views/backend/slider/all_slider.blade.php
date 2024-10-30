@@ -13,47 +13,51 @@
 
             <div class="text-end">
                 <ol class="breadcrumb m-0 py-0">
-                     <a href="" class="btn btn-primary">Add Slider </a>
+                     <a href="{{ route('add.slider') }}" class="btn btn-primary">Add Slider </a>
                 </ol>
             </div>
         </div>
 
-        <!-- Datatables  -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
- 
-                    <div class="card-body">
-                        <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            	
-                                <tr>
-                                    <td>John Smith</td>
-                                    <td>Project Manager</td>
-                                    <td>Los Angeles</td>
-                                    <td>35</td>
-                                    <td>2023-08-10</td>
-                                    <td>$110,000</td>
-                                </tr>
-                                
-                               
-                            </tbody>
-                        </table>
-                    </div>
+<!-- Datatables  -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
 
-                </div>
+            <div class="card-body">
+                <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                    <thead>
+                    <tr>
+                        <th>Sl</th>
+                        <th>Image</th>
+                        <th>Heading</th>
+                        <th>Description	</th>
+                        <th>Link</th> 
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+  @foreach($slider as $key=> $item)
+        <tr>
+            <td>{{ $key+1 }}</td>
+            <td><img src="{{ asset($item->image) }}" style="width:70px; height:40px;"></td>
+            <td>{{ $item->heading }}</td>
+            <td>{{ Str::limit($item->description, 20); }}</td>
+            <td>{{ $item->link }}</td>
+            <td>
+     <a href="" class="btn btn-success btn-sm">Edit</a>
+      <a href="" class="btn btn-danger btn-sm">Delete</a>
+
+            </td>
+        </tr>
+  @endforeach 
+                       
+                    </tbody>
+                </table>
             </div>
+
         </div>
+    </div>
+</div>
 
 
 

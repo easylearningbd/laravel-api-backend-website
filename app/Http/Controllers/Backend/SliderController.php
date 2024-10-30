@@ -14,6 +14,11 @@ class SliderController extends Controller
     }
     // End Method 
 
+    public function AddSlider(){
+		return view('backend.slider.add_slider');
+    }
+    // End Method 
+
 
 
 }
