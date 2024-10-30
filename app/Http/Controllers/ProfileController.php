@@ -66,5 +66,11 @@ class ProfileController extends Controller
         // End private Method
 
 
+     public function PasswordUpdate(Request $request){
+
+     }
+       // End Method
+
+
 
 }
