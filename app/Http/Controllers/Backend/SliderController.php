@@ -57,6 +57,49 @@ class SliderController extends Controller
     // End Method
 
     public function UpdateSlider(Request $request){
+    	$slider_id = $request->id;
+    	$slider = Slider::find($slider_id);
+
+    	if ($request->file('image')) {
+		$image = $request->file('image');
+		$manager = new ImageManager(new Driver());
+		$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); 
+		$img = $manager->read($image);
+		$img->resize(1124,750)->save(public_path('upload/slider/'.$name_gen));
+		$save_url = 'upload/slider/'.$name_gen;
+
+		if (file_exists(public_path($slider->image))) {
+			@unlink(public_path($slider->image));
+		}
+
+		$slider->update([
+			'heading' => $request->heading,
+			'description' => $request->description,
+			'link' => $request->link,
+			'image' => $save_url,
+		]);
+
+		$notification = array(
+            'message' => 'Slider Updated with Image Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->route('all.slider')->with($notification);
+
+	  } else {
+
+	  	$slider->update([
+			'heading' => $request->heading,
+			'description' => $request->description,
+			'link' => $request->link, 
+		]);
+
+		$notification = array(
+            'message' => 'Slider Updated without Image Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->route('all.slider')->with($notification);
+
+	  } 
 
     }
      // End Method
