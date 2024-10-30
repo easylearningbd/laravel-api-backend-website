@@ -26,7 +26,8 @@
                 <div class="card-body">
 
 
-<form class="row g-3"> 
+<form action="{{ route('store.slider') }}" method="post" class="row g-3" enctype="multipart/form-data"> 
+	@csrf
 
     <div class="col-md-6">
         <label for="validationDefault01" class="form-label">Slider Heading</label>
