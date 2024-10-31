@@ -124,6 +124,22 @@
             </div>
         </li>
 
+
+         <li>
+            <a href="#BlogCategory" data-bs-toggle="collapse">
+                <i data-feather="alert-octagon"></i>
+                <span> Manage BlogCategory </span>
+                <span class="menu-arrow"></span>
+            </a>
+            <div class="collapse" id="BlogCategory">
+                <ul class="nav-second-level">
+                    <li>
+                        <a href="{{ route('blog.category') }}" class="tp-link">Blog Category</a>
+                    </li> 
+                </ul>
+            </div>
+        </li>
+
       
         <li class="menu-title mt-2">General</li>
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\GatewayController;
 use App\Http\Controllers\Backend\TestimonialController;
+use App\Http\Controllers\Backend\BlogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -78,6 +79,13 @@ Route::middleware('auth')->group(function () {
  	Route::get('/edit/testimonial/{id}', 'EditTestimonial')->name('edit.testimonial');
  	Route::post('/update/testimonial', 'UpdateTestimonial')->name('update.testimonial');
  	Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
+
+ });
+
+
+ Route::controller(BlogController::class)->group(function(){
+ 	Route::get('/blog/category', 'BlogCategory')->name('blog.category'); 
+ 	 
 
  });
 
