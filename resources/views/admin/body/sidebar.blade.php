@@ -77,7 +77,7 @@
                         <a href="{{ route('all.service') }}" class="tp-link">All Service</a>
                     </li>
                     <li>
-                        <a href="error-500.html" class="tp-link">Add Service</a>
+                        <a href="{{ route('add.service') }}" class="tp-link">Add Service</a>
                     </li>
                     
                 </ul>
