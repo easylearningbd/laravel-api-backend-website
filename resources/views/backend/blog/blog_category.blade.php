@@ -13,7 +13,7 @@
 
             <div class="text-end">
                 <ol class="breadcrumb m-0 py-0">
-                     <a href="{{ route('add.testimonial') }}" class="btn btn-primary">Add Category </a>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#standard-modal"> Add Category </button>
                 </ol>
             </div>
         </div>
@@ -64,7 +64,32 @@
 
 
 
+<!-- Default Modal -->
+<div class="modal fade" id="standard-modal" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="standard-modalLabel">Add Blog Category</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+ <form id="myForm" action="{{ route('blog.category.store') }}" method="post" class="row g-3"> 
+    @csrf
 
+    <div class="col-md-12">
+        <label for="validationDefault01" class="form-label">Category Name</label>
+        <input type="text" name="blog_category" class="form-control" >
+    </div>      
+            </div>
+            <div class="modal-footer">
+                
+     <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+</form>
+
+        </div>
+    </div>
+</div>
 
 
 

@@ -14,5 +14,22 @@ class BlogController extends Controller
     }
     // End Method 
 
+    public function BlogCategoryStore(Request $request){ 
+
+		BlogCategory::create([
+			'blog_category' => $request->blog_category,
+			'slug' => strtolower(str_replace(' ', '-', $request->blog_category)), 
+		]);
+ 
+	    $notification = array(
+            'message' => 'BlogCategory Inserted Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->back()->with($notification);
+
+    }
+      // End Method 
+
+
 
 }
