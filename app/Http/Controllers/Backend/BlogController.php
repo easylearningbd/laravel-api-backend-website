@@ -112,6 +112,64 @@ class BlogController extends Controller
     }
       // End Method 
 
+    public function EditBlogPost($id){
+        $blogcat = BlogCategory::latest()->get();
+        $post = BlogPost::find($id);
+    	return view('backend.blog.edit_blog_post',compact('blogcat','post'));
+    }
+    // End Method 
+
+
+     public function UpdateBlogPost(Request $request){
+    	$blog_id = $request->id;
+    	$blogpost = BlogPost::find($blog_id);
+
+    	if ($request->file('image')) {
+		$image = $request->file('image');
+		$manager = new ImageManager(new Driver());
+		$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); 
+		$img = $manager->read($image);
+		$img->resize(688,436)->save(public_path('upload/blog/'.$name_gen));
+		$save_url = 'upload/blog/'.$name_gen;
+
+		if (file_exists(public_path($blogpost->image))) {
+			@unlink(public_path($blogpost->image));
+		}
+
+		$blogpost->update([
+			'post_title' => $request->post_title,
+			'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
+			'blogcat_id' => $request->blogcat_id,
+			'long_descp' => $request->long_descp, 
+			'image' => $save_url,
+		]);
+
+		$notification = array(
+            'message' => 'Blog Post Updated with Image Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->route('all.blog.post')->with($notification);
+
+	  } else {
+
+	  	$blogpost->update([
+			'post_title' => $request->post_title,
+			'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
+			'blogcat_id' => $request->blogcat_id,
+			'long_descp' => $request->long_descp,  
+		]);
+
+		$notification = array(
+            'message' => 'Blog Post Updated with Image Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->route('all.blog.post')->with($notification);
+
+	  } 
+
+    }
+     // End Method
+
 
 
 
