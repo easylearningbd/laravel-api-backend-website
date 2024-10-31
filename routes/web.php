@@ -89,8 +89,18 @@ Route::middleware('auth')->group(function () {
 
  	Route::get('/edit/blog/category/{id}', 'EditBlogCategory');
  	Route::post('/blog/category/update', 'BlogCategoryUpdate')->name('blog.category.update');
- 	Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
- 	 
+ 	Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category'); 
+
+ });
+
+
+ Route::controller(BlogController::class)->group(function(){
+ 	Route::get('/all/blog/post', 'AllBlogPost')->name('all.blog.post'); 
+ 	Route::get('/add/testimonial', 'AddTestimonial')->name('add.testimonial');
+ 	Route::post('/store/testimonial', 'StoreTestimonial')->name('store.testimonial');
+ 	Route::get('/edit/testimonial/{id}', 'EditTestimonial')->name('edit.testimonial');
+ 	Route::post('/update/testimonial', 'UpdateTestimonial')->name('update.testimonial');
+ 	Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
 
  });
 
