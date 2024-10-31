@@ -97,7 +97,7 @@
                         <a href="{{ route('gateway.one') }}" class="tp-link">Gateway One</a>
                     </li>
                     <li>
-                        <a href="{{ route('add.service') }}" class="tp-link">Add Service</a>
+                        <a href="{{ route('gateway.two') }}" class="tp-link">Gateway Two</a>
                     </li>
                     
                 </ul>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Gatewayone;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use App\Models\GateWayTwo;
 
 class GatewayController extends Controller
 {
@@ -63,6 +64,12 @@ class GatewayController extends Controller
 
     }
      // End Method
+
+     public function GetWayTwo(){
+    	$gettwo = GateWayTwo::find(1);
+    	return view('backend.gateway.gateway_two',compact('gettwo'));
+    }
+    // End Method 
 
 
 
