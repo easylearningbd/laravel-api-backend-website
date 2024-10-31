@@ -10,7 +10,7 @@
 
     <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
         <div class="flex-grow-1">
-            <h4 class="fs-18 fw-semibold m-0">Add Testimonial</h4>
+            <h4 class="fs-18 fw-semibold m-0">Edit Testimonial</h4>
         </div> 
        
     </div>
@@ -20,28 +20,30 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Add Testimonial</h5>
+                    <h5 class="card-title mb-0">Edit Testimonial</h5>
                 </div><!-- end card header -->
 
                 <div class="card-body">
 
 
-<form id="myForm" action="{{ route('store.testimonial') }}" method="post" class="row g-3" enctype="multipart/form-data"> 
+<form id="myForm" action="{{ route('update.testimonial') }}" method="post" class="row g-3" enctype="multipart/form-data"> 
 	@csrf
+
+    <input type="hidden" name="id" value="{{ $testi->id }}">
 
     <div class="col-md-6 form-group">
         <label for="validationDefault01" class="form-label">Name</label>
-        <input type="text" name="name" class="form-control" >
+        <input type="text" name="name" class="form-control" value="{{ $testi->name  }}" >
     </div>
 
      <div class="col-md-6 form-group">
         <label for="validationDefault01" class="form-label">Position</label>
-        <input type="text" name="position" class="form-control" >
+        <input type="text" name="position" class="form-control" value="{{ $testi->position  }}" >
     </div>
 
      <div class="col-md-12 form-group">
         <label for="validationDefault01" class="form-label">Message </label>
-        <textarea name="message" class="form-control" placeholder="Required example textarea" ></textarea>
+        <textarea name="message" class="form-control" placeholder="Required example textarea" >{{ $testi->message  }}</textarea>
     </div>
  
    

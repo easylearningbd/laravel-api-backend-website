@@ -74,10 +74,10 @@ Route::middleware('auth')->group(function () {
     Route::controller(TestimonialController::class)->group(function(){
  	Route::get('/all/testimonial', 'AllTestimonial')->name('all.testimonial'); 
  	Route::get('/add/testimonial', 'AddTestimonial')->name('add.testimonial');
- 	Route::post('/store/service', 'StoreService')->name('store.service');
- 	Route::get('/edit/service/{id}', 'EditService')->name('edit.service');
- 	Route::post('/update/service', 'UpdateService')->name('update.service');
- 	Route::get('/delete/service/{id}', 'DeleteService')->name('delete.service');
+ 	Route::post('/store/testimonial', 'StoreTestimonial')->name('store.testimonial');
+ 	Route::get('/edit/testimonial/{id}', 'EditTestimonial')->name('edit.testimonial');
+ 	Route::post('/update/testimonial', 'UpdateTestimonial')->name('update.testimonial');
+ 	Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
 
  });
 
