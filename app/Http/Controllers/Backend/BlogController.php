@@ -30,6 +30,12 @@ class BlogController extends Controller
     }
       // End Method 
 
+    public function EditBlogCategory($id){
+    	$categoris = BlogCategory::find($id);
+    	return response()->json($categoris); 
+    }
+     // End Method 
+
 
 
 }

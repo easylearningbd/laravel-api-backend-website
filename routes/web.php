@@ -86,6 +86,8 @@ Route::middleware('auth')->group(function () {
  Route::controller(BlogController::class)->group(function(){
  	Route::get('/blog/category', 'BlogCategory')->name('blog.category'); 
  	Route::post('/blog/category/store', 'BlogCategoryStore')->name('blog.category.store');
+
+ 	Route::get('/edit/blog/category/{id}', 'EditBlogCategory');
  	 
 
  });

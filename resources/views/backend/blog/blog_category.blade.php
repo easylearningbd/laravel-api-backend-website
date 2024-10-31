@@ -40,7 +40,9 @@
             <td>{{ $item->blog_category }}</td>
             <td>{{ $item->slug }}</td>  
             <td>
-      <a href="{{ route('edit.testimonial',$item->id) }}" class="btn btn-success btn-sm">Edit</a>
+
+   <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#category" id="{{ $item->id }}" onclick="categoryEdit(this.id)" > Edit </button>
+   
       <a href="{{ route('delete.testimonial',$item->id) }}" class="btn btn-danger btn-sm" id="delete">Delete</a>
 
             </td>
@@ -91,6 +93,51 @@
     </div>
 </div>
 
+ 
+ 
+<!--Edit Modal -->
+<div class="modal fade" id="category" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="standard-modalLabel">Edit Blog Category</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+ <form id="myForm" action="{{ route('blog.category.store') }}" method="post" class="row g-3"> 
+    @csrf
+
+    <div class="col-md-12">
+        <label for="validationDefault01" class="form-label">Category Name</label>
+        <input type="text" name="blog_category" class="form-control" id="cat" >
+    </div>      
+            </div>
+            <div class="modal-footer">
+                
+     <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+</form>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function categoryEdit(id){
+        $.ajax({
+            type: 'GET',
+            url: '/edit/blog/category/'+id,
+            dataType: 'json',
+
+            success:function(data){
+                // console.log(data)
+                $('#cat').val(data.blog_category);
+                $('#cat_id').val(data.id)
+            }
+        })
+    }
+</script>
 
 
 @endsection
