@@ -84,6 +84,26 @@
             </div>
         </li>
 
+
+         <li>
+            <a href="#GateWay" data-bs-toggle="collapse">
+                <i data-feather="alert-octagon"></i>
+                <span> Manage GateWay </span>
+                <span class="menu-arrow"></span>
+            </a>
+            <div class="collapse" id="GateWay">
+                <ul class="nav-second-level">
+                    <li>
+                        <a href="{{ route('gateway.one') }}" class="tp-link">Gateway One</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('add.service') }}" class="tp-link">Add Service</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+
       
         <li class="menu-title mt-2">General</li>
 
