@@ -39,10 +39,10 @@
   @foreach($blogpost as $key=> $item)
         <tr>
             <td>{{ $key+1 }}</td>
-            <td>{{ $item->blogcat_id }}</td>
+            <td>{{ $item['blog']['blog_category'] }}</td>
             <td><img src="{{ asset($item->image) }}" style="width:70px; height:40px;"></td>
             <td>{{ $item->post_title }}</td>
-            <td>{{ Str::limit($item->long_descp, 30); }}</td> 
+            <td>{{ Str::limit(strip_tags($item->long_descp), 30); }}</td> 
             <td>
       <a href="{{ route('edit.service',$item->id) }}" class="btn btn-success btn-sm">Edit</a>
       <a href="{{ route('delete.service',$item->id) }}" class="btn btn-danger btn-sm" id="delete">Delete</a>

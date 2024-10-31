@@ -26,7 +26,7 @@
                 <div class="card-body">
 
 
-<form id="myForm" action="{{ route('store.service') }}" method="post" class="row g-3" enctype="multipart/form-data"> 
+<form id="myForm" action="{{ route('store.blog.post') }}" method="post" class="row g-3" enctype="multipart/form-data"> 
 	@csrf
 
     <div class="col-md-6">
@@ -45,14 +45,14 @@
     </div> 
 
        <div class="col-md-12">
-        <label for="validationDefault01" class="form-label">Service Description</label>
+        <label for="validationDefault01" class="form-label">Blog Description</label>
         <div id="quill-editor" style="height: 200px"> </div>
         <input type="hidden" name="long_descp" id="long_descp">
        
     </div>
 
     <div class="col-md-6">
-        <label for="validationDefault01" class="form-label">Service Image</label>
+        <label for="validationDefault01" class="form-label">Blog Image</label>
         <input type="file" name="image" class="form-control"  id="image">
     </div>
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class BlogController extends Controller
 { 
@@ -81,6 +83,35 @@ class BlogController extends Controller
     	return view('backend.blog.add_blog_post',compact('blogcat'));
     }
      // End Method 
+
+     public function StoreBlogPost(Request $request){
+
+	if ($request->file('image')) {
+		$image = $request->file('image');
+		$manager = new ImageManager(new Driver());
+		$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); 
+		$img = $manager->read($image);
+		$img->resize(688,436)->save(public_path('upload/blog/'.$name_gen));
+		$save_url = 'upload/blog/'.$name_gen;
+
+		BlogPost::create([
+			'post_title' => $request->post_title,
+			'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
+			'blogcat_id' => $request->blogcat_id,
+			'long_descp' => $request->long_descp, 
+			'image' => $save_url,
+		]);
+	  }
+        
+	    $notification = array(
+            'message' => 'Blog Post Inserted Successfully',
+            'alert-type' => 'success'
+        ); 
+        return redirect()->route('all.blog.post')->with($notification);
+
+    }
+      // End Method 
+
 
 
 
