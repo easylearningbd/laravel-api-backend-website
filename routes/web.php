@@ -88,6 +88,8 @@ Route::middleware('auth')->group(function () {
  	Route::post('/blog/category/store', 'BlogCategoryStore')->name('blog.category.store');
 
  	Route::get('/edit/blog/category/{id}', 'EditBlogCategory');
+ 	Route::post('/blog/category/update', 'BlogCategoryUpdate')->name('blog.category.update');
+ 	Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
  	 
 
  });
