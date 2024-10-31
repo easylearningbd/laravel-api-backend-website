@@ -14,6 +14,9 @@ class TestimonialController extends Controller
     }
     // End Method 
 
-
+    public function AddTestimonial(){
+		return view('backend.testimonial.add_testimonial');
+    }
+    // End Method 
 
 }

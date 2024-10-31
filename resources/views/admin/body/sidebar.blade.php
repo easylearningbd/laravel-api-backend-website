@@ -117,7 +117,7 @@
                         <a href="{{ route('all.testimonial') }}" class="tp-link">All Testimonial</a>
                     </li>
                     <li>
-                        <a href="{{ route('add.service') }}" class="tp-link">Add Testimonial</a>
+                        <a href="{{ route('add.testimonial') }}" class="tp-link">Add Testimonial</a>
                     </li>
                     
                 </ul>

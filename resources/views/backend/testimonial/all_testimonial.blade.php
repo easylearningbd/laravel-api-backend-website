@@ -13,7 +13,7 @@
 
             <div class="text-end">
                 <ol class="breadcrumb m-0 py-0">
-                     <a href="{{ route('add.slider') }}" class="btn btn-primary">Add Testimonial </a>
+                     <a href="{{ route('add.testimonial') }}" class="btn btn-primary">Add Testimonial </a>
                 </ol>
             </div>
         </div>
