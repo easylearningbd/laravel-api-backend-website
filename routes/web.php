@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function () {
  	Route::post('/store/service', 'StoreService')->name('store.service');
  	Route::get('/edit/service/{id}', 'EditService')->name('edit.service');
  	Route::post('/update/service', 'UpdateService')->name('update.service');
- 	Route::get('/delete/slider/{id}', 'DeleteSlider')->name('delete.slider');
+ 	Route::get('/delete/service/{id}', 'DeleteService')->name('delete.service');
 
  });
 
