@@ -96,7 +96,7 @@ Route::middleware('auth')->group(function () {
 
  Route::controller(BlogController::class)->group(function(){
  	Route::get('/all/blog/post', 'AllBlogPost')->name('all.blog.post'); 
- 	Route::get('/add/testimonial', 'AddTestimonial')->name('add.testimonial');
+ 	Route::get('/add/blog/post', 'AddBlogPost')->name('add.blog.post');
  	Route::post('/store/testimonial', 'StoreTestimonial')->name('store.testimonial');
  	Route::get('/edit/testimonial/{id}', 'EditTestimonial')->name('edit.testimonial');
  	Route::post('/update/testimonial', 'UpdateTestimonial')->name('update.testimonial');
