@@ -8,7 +8,7 @@ use App\Models\Gatewayone;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use App\Models\GateWayTwo;
-
+ 
 class GatewayController extends Controller
 {
     public function GetWayOne(){

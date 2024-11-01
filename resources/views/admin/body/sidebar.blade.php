@@ -158,6 +158,23 @@
             </div>
         </li>
 
+
+         <li>
+            <a href="#Setting" data-bs-toggle="collapse">
+                <i data-feather="alert-octagon"></i>
+                <span> Site Setting </span>
+                <span class="menu-arrow"></span>
+            </a>
+            <div class="collapse" id="Setting">
+                <ul class="nav-second-level">
+                    <li>
+                        <a href="{{ route('site.setting') }}" class="tp-link">Site Setting </a>
+                    </li> 
+                    
+                </ul>
+            </div>
+        </li>
+
       
         <li class="menu-title mt-2">General</li>
 

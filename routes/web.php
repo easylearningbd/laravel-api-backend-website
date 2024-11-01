@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\GatewayController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\SettingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -101,6 +102,15 @@ Route::middleware('auth')->group(function () {
  	Route::get('/edit/blog/post/{id}', 'EditBlogPost')->name('edit.blog.post');
  	Route::post('/update/blog/post', 'UpdateBlogPost')->name('update.blog.post');
  	Route::get('/delete/blog/post/{id}', 'DeleteBlogPost')->name('delete.blog.post');
+
+ });
+
+   Route::controller(SettingController::class)->group(function(){
+
+ 	Route::get('/site/setting', 'SiteSetting')->name('site.setting');
+ 	Route::post('/update/gateway/one', 'UpdateGetWayOne')->name('update.gateway.one'); 
+
+ 
 
  });
 
