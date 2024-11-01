@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\GatewayController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\AboutPageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -108,11 +109,15 @@ Route::middleware('auth')->group(function () {
    Route::controller(SettingController::class)->group(function(){
 
  	Route::get('/site/setting', 'SiteSetting')->name('site.setting');
- 	Route::post('/update/site/setting', 'UpdateSiteSetting')->name('update.site.setting'); 
-
- 
-
+ 	Route::post('/update/site/setting', 'UpdateSiteSetting')->name('update.site.setting');  
  });
+
+     Route::controller(AboutPageController::class)->group(function(){
+
+ 	Route::get('/about/page', 'AboutPage')->name('about.page');
+ 	Route::post('/update/site/setting', 'UpdateSiteSetting')->name('update.site.setting');  
+ });
+
 
 
 
