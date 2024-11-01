@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use App\Models\AboutPage;
+use App\Models\ContactPage;
 
 class AboutPageController extends Controller
 {
@@ -72,6 +73,16 @@ class AboutPageController extends Controller
 
     }
      // End Method
+
+
+    /////////////////// Contact Us Page Method //////////////////
+
+    public function ContactMessage(){
+    	$contact = ContactPage::latest()->get();
+    	return view('backend.contact.all_contact', compact('contact'));
+
+    }
+    // End Method
 
 
 } 

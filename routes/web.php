@@ -115,7 +115,9 @@ Route::middleware('auth')->group(function () {
      Route::controller(AboutPageController::class)->group(function(){
 
  	Route::get('/about/page', 'AboutPage')->name('about.page');
- 	Route::post('/update/aboutus', 'UpdateAboutPage')->name('update.aboutus');  
+ 	Route::post('/update/aboutus', 'UpdateAboutPage')->name('update.aboutus');
+
+ 	Route::get('/contact/message', 'ContactMessage')->name('contact.message');  
  });
 
 
