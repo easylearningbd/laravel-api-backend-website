@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\GatewayController;
 use App\Http\Controllers\Backend\TestimonialController;
+use App\Http\Controllers\Backend\BlogController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -18,11 +19,18 @@ Route::get('/sliders',[SliderController::class, 'ApiAllSlider']);
 Route::get('/services',[ServiceController::class, 'AllServices']);
 Route::get('/service/{slug}',[ServiceController::class, 'getServiceBySlug']);
 
-/// Gateway one api //
+///  one api //
 Route::get('/gatewayone',[GatewayController::class, 'ApiGatewayOne']);
-/// Gateway Two api //
+///  Two api //
 Route::get('/gatewaytwo',[GatewayController::class, 'ApiGatewayTwo']);
 
-/// Gateway Testimonial api //
+///  Testimonial api //
 Route::get('/gettestimonial',[TestimonialController::class, 'ApiGetTestimonial']);
+
+///  Blog Category api //
+Route::get('/blogcat',[BlogController::class, 'ApiBlogCat']);
+
+///  Blog Post api //
+Route::get('/allblog',[BlogController::class, 'ApiAllBlog']);
+
 

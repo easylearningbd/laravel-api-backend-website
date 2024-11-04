@@ -11,6 +11,24 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class BlogController extends Controller
 { 
+
+      // Start Blog All api 
+    public function ApiBlogCat(){
+       $blogcat = BlogCategory::latest()->get();
+       return $blogcat;
+    } 
+
+
+     public function ApiAllBlog(){
+       $blogpost = BlogPost::latest()->get();
+       return $blogpost;
+    } 
+
+
+    // End Blog All api 
+
+
+
     public function BlogCategory(){
     	$category = BlogCategory::latest()->get();
     	return view('backend.blog.blog_category',compact('category'));
