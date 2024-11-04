@@ -8,9 +8,26 @@ use App\Models\Gatewayone;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use App\Models\GateWayTwo;
- 
+  
 class GatewayController extends Controller
 {
+
+
+  // Start GetWay api 
+ public function ApiGatewayOne(){
+    	$getone = Gatewayone::find(1);
+    	return $getone;
+    }
+
+     public function ApiGatewayTwo(){
+    	$gettwo = GateWayTwo::find(1);
+    	return $gettwo;
+    }
+
+
+ // End Service api 
+
+
     public function GetWayOne(){
     	$getone = Gatewayone::find(1);
     	return view('backend.gateway.gateway_one',compact('getone'));
