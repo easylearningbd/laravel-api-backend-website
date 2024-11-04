@@ -10,6 +10,25 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class ServiceController extends Controller
 {
+
+	  // Start Service api 
+    public function AllServices(){
+       $service = Service::latest()->get();
+       return $service;
+    } 
+
+
+    public function getServiceBySlug($slug){
+		$service = Service::where('slug',$slug)->first();
+		if (!$service) {
+			return response()->json(['error' => 'Service not found'], 404);
+		}
+		return response()->json($service);
+    }
+     // End Service api  
+
+
+
      public function AllService(){
     	$service = Service::latest()->get();
     	return view('backend.service.all_service',compact('service'));
