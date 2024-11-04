@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\SliderController; 
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\GatewayController;
 use App\Http\Controllers\Backend\TestimonialController;

@@ -7,9 +7,19 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
-
+ 
 class SliderController extends Controller
 {
+
+    // Start Slider api 
+    public function ApiAllSlider(){
+       $slider = Slider::latest()->get();
+       return $slider;
+    } 
+     // End Slider api  
+
+
+
     public function AllSlider(){
     	$slider = Slider::latest()->get();
     	return view('backend.slider.all_slider',compact('slider'));
