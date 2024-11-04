@@ -11,6 +11,18 @@ use App\Models\ContactPage;
 
 class AboutPageController extends Controller
 {
+   
+ 	 //// Site About page Api 
+
+	  public function ApiAboutPage(){
+    	$about = AboutPage::find(1);
+    	return $about;
+    }
+    // End Method 
+    //// End About page Api 
+
+
+
     public function AboutPage(){
     	$about = AboutPage::find(1);
     	return view('backend.about.about_us',compact('about'));
