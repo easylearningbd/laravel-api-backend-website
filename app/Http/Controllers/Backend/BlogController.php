@@ -19,10 +19,30 @@ class BlogController extends Controller
     } 
 
 
+    //  public function ApiAllBlog(){
+    //    $blogpost = BlogPost::latest()->get();
+    //    return $blogpost;
+    // } 
+
      public function ApiAllBlog(){
-       $blogpost = BlogPost::latest()->get();
-       return $blogpost;
-    } 
+       $blogposts = BlogPost::with('blog')->latest()->get();
+
+       $response = $blogposts->map(function ($post){
+        return [
+            'id' => $post->id,
+            'post_title' => $post->post_title,
+            'post_slug' => $post->post_slug,
+            'image' => $post->image,
+            'long_descp' => $post->long_descp,
+            'created_at' => $post->created_at,
+            'updated_at' => $post->updated_at, 
+            'category_name' => $post->blog ? $post->blog->blog_category : null , 
+         ];
+       });
+
+       return response()->json($response);  
+        
+    } // End Method 
 
 
     // End Blog All api 
