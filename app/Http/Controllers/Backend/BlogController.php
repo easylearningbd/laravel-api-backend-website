@@ -45,6 +45,30 @@ class BlogController extends Controller
     } // End Method 
 
 
+    public function ApiAllBlogSlug($slug){
+        $blogpost = BlogPost::with('blog')->where('post_slug',$slug)->first();
+
+        if (!$blogpost) {
+            return response()->json(['error' => 'BlogPost not found'],404);
+        }
+
+        $response = [
+            'id' => $blogpost->id,
+            'post_title' => $blogpost->post_title,
+            'post_slug' => $blogpost->post_slug,
+            'image' => $blogpost->image,
+            'long_descp' => $blogpost->long_descp,
+            'created_at' => $blogpost->created_at,
+            'updated_at' => $blogpost->updated_at, 
+            'category_name' => $blogpost->blog ? $blogpost->blog->blog_category : null , 
+
+        ];
+
+          return response()->json($response); 
+
+    }// End Method 
+
+
     // End Blog All api 
 
 
