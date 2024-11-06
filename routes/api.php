@@ -35,6 +35,7 @@ Route::get('/blogcat',[BlogController::class, 'ApiBlogCat']);
 ///  Blog Post api //
 Route::get('/allblog',[BlogController::class, 'ApiAllBlog']);
 Route::get('/allblog/{slug}',[BlogController::class, 'ApiAllBlogSlug']);
+Route::get('/category/{category_id}/blogs',[BlogController::class, 'getBlogsByCategory']);
 
 ///  Sitesetting api //
 Route::get('/sitesetting',[SettingController::class, 'ApiSiteSetting']);
