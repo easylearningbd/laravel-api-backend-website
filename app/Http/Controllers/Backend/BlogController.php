@@ -73,7 +73,7 @@ class BlogController extends Controller
         $blogs = BlogPost::where('blogcat_id',$category_id)
         ->join('blog_categories', 'blog_posts.blogcat_id' , '=' , 
             'blog_categories.id')
-        ->select('blog_posts.*','blog_categories.blog_category')
+        ->select('blog_posts.*','blog_categories.blog_category as category_name')
         ->get();
         return response()->json($blogs);
 
