@@ -42,5 +42,8 @@ Route::get('/sitesetting',[SettingController::class, 'ApiSiteSetting']);
 
 ///  Aboutus api //
 Route::get('/aboutpage',[AboutPageController::class, 'ApiAboutPage']);
+///  Add Contact Api //
+Route::post('/contact',[AboutPageController::class, 'ContactSubmit']);
+
 
 

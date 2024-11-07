@@ -8,6 +8,7 @@ use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use App\Models\AboutPage;
 use App\Models\ContactPage;
+use Illuminate\Support\Facades\Validator;
 
 class AboutPageController extends Controller
 {
@@ -95,6 +96,26 @@ class AboutPageController extends Controller
 
     }
     // End Method
+
+    public function ContactSubmit(Request $request){
+
+    	$validator = Validator::make($request->all(), [
+    		'name' => 'required|string|max:255',
+    		'email' => 'required|email',
+    		'subject' => 'required|string',
+    		'message' => 'required|string',
+
+    	]);
+
+    	if ($validator->fails()) {
+    		return response()->json(['errors' => $validator->errors()], 422);
+    	}
+
+    	ContactPage::create($request->all());
+
+    	return response()->json(['message' => 'Message send successfully'], 201);
+
+    } // End Method
 
 
 } 
